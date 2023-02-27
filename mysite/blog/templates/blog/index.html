@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="container-fluid p-2 bg-dark text-white text-center" id="index">
+    <h1>Welcome to my Blog</h1>
+    <p><small>To access cooler blogs, Log in.</small></p>
+    <p>Click the following button below <strong>to view our latest list.</strong>.</p>
+    <p>The following is <em>only for members</em>.</p>
+    <a href="{% url 'blog:blog-list' %}" class="btn btn-primary ">List of posts</a>
+    <a href="{% url 'blog:blog-create' %}" class="btn btn-primary ">Create a new post</a>
+    
+    
+</div
+
+
+
+{% endblock %}

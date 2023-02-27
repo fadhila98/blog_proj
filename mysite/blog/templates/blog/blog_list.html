@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="container-fluid p-5 bg-light text-black text-center" id="index">
+    <h1>Welcome to my Blog</h1>
+
+    
+      
+
+    <!-- ((modelname))_list -->
+   
+    <h3>Want to create a cool new post? </h3>
+    <h1><a href="{% url 'blog:blog-create' %}" class="btn btn-primary" >Click here!</a></h1>
+</div>
+<div id="list" >
+    {% for blog in blogmodel_list %}
+    <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+        <div class="card-header">Blog Number: {{ blog.id }}</div>
+        <div class="card-body">
+          <h4 class="card-title">{{ blog.title }}</h4>
+          <p class="card-text">{{ blog.created_at }}.</p>
+        </div>
+        <a href="{% url 'blog:blogmodel-detail' blog.id %}" class="btn btn-outline-success">Detail</a>
+        <a href="{% url 'blog:blog-delete' blog.id %}" class="btn btn-outline-light" >Delete</a>
+        <a href="{% url 'blog:blog-update' blog.id %}" class="btn btn-link" >Update</a>
+        <!-- <img src="{{ object.image.url }}" alt="image" class="img-thumbnail" height="40%" width="40%" > -->
+
+      </div>
+</div>
+     
+    
+       
+    {% endfor %}
+        
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="container">
+<div class="container-fluid p-5 bg-dark text-white text-center" id="index">
+    
+    <p>The following are <strong>the details</strong>.</p>
+            <h1> {{ object.title }}</h1>
+            <p> {{ object.content }}</p>
+            <!-- <h1> {{ object.image }}</h1> -->
+            <p> {{ object.created_at }}</p>
+        
+            <h3> Successfully uploaded : {{ img_obj.title }}</h3>
+            <img src="{{ object.image.url }}" alt="image" class="img-thumbnail" height="70%" width="70%" >
+            <!-- "OBJECT=ANYTHING or define at detailview using context_objectname, IMAGE=FIELD NAME, URL=URL" -->
+            <br>
+            <a href="{% url 'blog:blog-update' object.id %}" class="btn btn-success" >Update</a>
+</div>
+</div>
+
+{% endblock %}
